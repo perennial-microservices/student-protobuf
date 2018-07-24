@@ -2,10 +2,24 @@ syntax = "proto3";
 
 package student;
 
+import "school.proto";
+import "subject.proto";
+import "semester.proto";
+import "result.proto";
+
 option go_package = "studentpb";
 
 message Student {
-    int32 id = 1;
-    string first_name = 2;
-    string last_name = 3;
+    int32 id                    =   1;
+
+    string first_name           =   2;
+    string last_name            =   3;
+
+    School school               =   4;
+
+    repeated Subject subjects   =   5;
+
+    repeated Result results     =   6;
+
+    Semester semester           =   7 [default = SEMESTER_UNDEFINED];
 }
