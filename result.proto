@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package student;
+
+import "semester.proto";
+
+option go_package = "studentpb";
+
+message Result {
+    int32 id            =   1;
+
+    float percentage    =   2;
+    string comment      =   3;
+    
+    Semester semester   =   4 [default = SEMESTER_UNDEFINED];
+}
